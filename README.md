@@ -24,14 +24,14 @@
 未加速时CPU程序性能
 ![ori](./pic/ori.png)
 
-基础并行版本性能
+`基础并行`版本性能
 ![parallel](./pic/parallel.png)
 
-shuffle 版本性能
+`shuffle + 分块` 版本性能
 ![shuffle](./pic/shuffle.png)
 
-使用 shared_memory 的性能
+使用 `shared_memory + 分块` 的性能，这里的 `BLOCK_STRIDE` 改为 `1` 即约等于原 `shared_memory` 版本的性能。
 ![shared](./pic/shared.png)
 
-偷偷再加了一点针对4096个body的优化的最佳结果
+偷偷再加了一点针对4096个body的优化的最佳结果(测了几次得到的某一次最好的结果)
 ![best](./pic/best.png)
