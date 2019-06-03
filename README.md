@@ -18,20 +18,26 @@
 基本就像上面描述的，从 parallel 版本到 shared 版本改动比较多，写了一小部分注释，不太明白的可以联系我来说明。有一些优化是有一点针对性的所以不一定能通用，像shuffle版本修改 block_size 似乎就结果不正确了，因为性能不高就没有深究了。
 
 ## 测试说明
-测试环境 V-100 信息
-![v100](./pic/v100.png)
+* 测试环境 V-100 信息
 
-未加速时CPU程序性能
-![ori](./pic/ori.png)
+    ![v100](./pic/V100.png)
 
-`基础并行`版本性能
-![parallel](./pic/parallel.png)
+* 未加速时CPU程序性能
 
-`shuffle + 分块` 版本性能
-![shuffle](./pic/shuffle.png)
+    ![ori](./pic/ori.png)
 
-使用 `shared_memory + 分块` 的性能，这里的 `BLOCK_STRIDE` 改为 `1` 即约等于原 `shared_memory` 版本的性能。
-![shared](./pic/shared.png)
+* `基础并行`版本性能
+  
+    ![parallel](./pic/parallel.png)
 
-偷偷再加了一点针对4096个body的优化的最佳结果(测了几次得到的某一次最好的结果)
-![best](./pic/best.png)
+* `shuffle + 分块` 版本性能
+  
+    ![shuffle](./pic/shuffle.png)
+
+* 使用 `shared_memory + 分块` 的性能，这里的        `BLOCK_STRIDE` 改为 `1` 即约等于原 `shared_memory` 版本的性能。
+  
+    ![shared](./pic/shared.png)
+
+* 偷偷再加了一点针对4096个body的优化的最佳结果(测了几次得到的某一次最好的结果)
+  
+    ![best](./pic/best.png)
