@@ -48,7 +48,7 @@ __global__ void bodyForce(Body *p, float dt, int n)
             spos[threadIdx.x] = make_float3(temp.x, temp.y, temp.z);
             // 块内同步，防止spos提前被读取
             __syncthreads();
-            // 编译优化，只有 BLOCK_SIZE 为常量时才有用
+// 编译优化，只有 BLOCK_SIZE 为常量时才有用
 #pragma unroll
             for (int j = 0; j < BLOCK_SIZE; j++)
             {
